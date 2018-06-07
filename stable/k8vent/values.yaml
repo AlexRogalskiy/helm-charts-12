@@ -1,0 +1,70 @@
+# Default values for k8vent.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The default values here are suitable for a minikube installation.
+
+# teamIds is an array of Atomist workspace/team IDs, if not set or set
+# to a zero-length array, k8vent will only send events for pods with
+# "atomist.com/k8vent" annotations supplying webhook URLs
+teamIds:
+
+# environment is an arbitrary environment tag for pod events
+# sent to the Atomist webhook
+environment: minikube
+
+# mode specifies whether k8vent should run in "cluster" or "namespace"
+# mode.
+mode: cluster
+
+# image has information on what image to start up in the pod container
+image:
+  repository: atomist/k8vent
+  # tag of image to use, if not set, Chart.AppVersion will be used
+  tag:
+  pullPolicy: IfNotPresent
+
+## Deployment spec values, these values have the same meaning as in a
+## deployment spec
+replicas: 1
+
+revisionHistoryLimit: 3
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 50Mi
+  requests:
+    cpu: 100m
+    memory: 50Mi
+
+dnsPolicy: ClusterFirst
+
+restartPolicy: Always
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 0
+    maxSurge: 1
+
+## RBAC values
+rbac:
+  # create RBAC resources, set to false if you will create the RBAC
+  # resources yourself
+  create: true
+
+# serviceAccount values
+serviceAccount:
+  # create service account, set to false if you will create the
+  # service account yourself
+  create: true
+  # name of the service account, if not set and create is true, a name
+  # is generated using the fullname template
+  name:

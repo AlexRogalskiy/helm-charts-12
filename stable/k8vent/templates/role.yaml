@@ -1,0 +1,16 @@
+{{- if .Values.rbac.create -}}
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: {{ if eq .Values.mode "cluster" }}Cluster{{ end }}Role
+metadata:
+  name: {{ template "k8vent.fullname" . }}
+  labels:
+    app: {{ template "k8vent.name" . }}
+    chart: {{ template "k8vent.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+{{- end }}
