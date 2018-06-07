@@ -34,13 +34,14 @@ config:
     # if empty, all namespaces will be managed
     namespaces:
 
-  # environment is an arbitrary string used in logs to help you
-  # distinguish where the automation is running
-  environment: kubernetes
+  # environment connects this instance of k8-automation with goals
+  # set by an SDM, an instance of k8-automation will only fulfill
+  # goals with the same environment
+  environment: minikube
 
   # policy is either "durable" for production systems or "ephemeral"
   # when testing
-  policy: ephemeral
+  policy: durable
 
   # ws is the automation client websocket settings
   ws:

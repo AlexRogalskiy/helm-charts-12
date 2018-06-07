@@ -1,0 +1,41 @@
+apiVersion: v1
+entries:
+  k8-automation:
+  - apiVersion: v1
+    appVersion: 0.8.0
+    created: 2018-06-07T14:30:03.604257544-05:00
+    description: A Helm chart for k8-automation
+    digest: e9468bd78131638d464a76a6fe1b3c145a15ac867d7c3c3a516f4a1cab273d82
+    home: https://github.com/atomist/k8-automation
+    icon: https://images.atomist.com/logo/atomist-color-mark-transparent-small.png
+    keywords:
+    - kubernetes
+    - atomist
+    maintainers:
+    - email: support@atomist.com
+      name: Atomist
+      url: https://github.com/atomist
+    name: k8-automation
+    urls:
+    - https://atomist.github.io/helm-charts/k8-automation-0.1.0.tgz
+    version: 0.1.0
+  k8vent:
+  - apiVersion: v1
+    appVersion: 0.8.0
+    created: 2018-06-07T14:30:03.604762091-05:00
+    description: A Helm chart for k8vent
+    digest: 243e96bff23eafb68212a75dc7a2589ddc88a686a387a34e9a94139b6df1510b
+    home: https://github.com/atomist/k8vent/
+    icon: https://images.atomist.com/logo/atomist-color-mark-transparent-small.png
+    keywords:
+    - kubernetes
+    - atomist
+    maintainers:
+    - email: support@atomist.com
+      name: Atomist
+      url: https://github.com/atomist
+    name: k8vent
+    urls:
+    - https://atomist.github.io/helm-charts/k8vent-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-06-07T14:30:03.602190192-05:00
