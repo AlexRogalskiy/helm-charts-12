@@ -16,16 +16,13 @@ Briefly, to install the Atomist utilities using these Helm charts, run
 `helm` using the `--repo` command-line option.
 
 ```
-$ helm install --repo https://atomist.github.io/helm-charts atomist-utilities \
-     --set=global.token="TOKEN" --set=global.teamIds="{WORKSPACE_ID}" \
-     --set=global.mode=MODE --set=global.environment=ENV
+$ helm install --repo https://atomist.github.io/helm-charts --namespace=atomist \
+     atomist-utilities --set=global.atomist.token="TOKEN" \
+     --set=global.atomist.teamIds="{WORKSPACE_ID}"
 ```
 
-Replace `TOKEN` with a valid Atomist authentication token,
-`WORKSPACE_ID` with your Atomist workspace/team ID, `MODE` with either
-`cluster` for cluster-wide mode or `namespace` for namespace-scoded
-mode, and `ENV` with a meaningful name for your Kubernetes cluster,
-e.g., "production" or "external".
+Replace `TOKEN` with a valid Atomist authentication token and
+`WORKSPACE_ID` with your Atomist workspace/team ID.
 
 You can also install the Atomist utilities individually.  The
 currently supported stable charts are:
