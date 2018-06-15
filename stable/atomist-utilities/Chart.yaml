@@ -1,0 +1,13 @@
+apiVersion: v1
+name: atomist-utilities
+version: 0.1.0
+description: A Helm chart for the Atomist Kubernetes utilities
+keywords:
+  - kubernetes
+  - atomist
+home: https://github.com/atomist/helm-charts/
+maintainers:
+  - name: Atomist
+    email: support@atomist.com
+    url: https://github.com/atomist
+icon: https://images.atomist.com/logo/atomist-color-mark-transparent-small.png

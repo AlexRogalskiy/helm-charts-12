@@ -1,0 +1,17 @@
+# Default values for atomist-utilities.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  # mode should be either "cluster" or "namespace"
+  mode: cluster
+
+  # token is a valid Atomist authentication token, required
+  token:
+
+  # teamIds is an array of Atomist workspace/team IDs for your team,
+  # required
+  teamIds:
+
+  # environment is the unique name for your Kuberntes cluster
+  environment: minikube

@@ -1,0 +1,2 @@
+Thank you for installing the Atomist Kubernetes utilities
+in your cluster.

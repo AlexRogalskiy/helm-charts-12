@@ -1,0 +1,7 @@
+dependencies:
+  - name: k8vent
+    version: 0.2.0
+    repository: https://atomist.github.io/helm-charts
+  - name: k8-automation
+    version: 0.2.1
+    repository: https://atomist.github.io/helm-charts
