@@ -53,7 +53,7 @@ Determine the deployment mode.  Global value takes precedence.
 Determine team IDs.  k8-automation value takes precedence.
 */}}
 {{- define "k8-automation.teams" -}}
-{{- default .Values.global.teamIds .Values.config.teamIds -}}
+{{- default .Values.global.teamIds .Values.config.teamIds | join "," -}}
 {{- end -}}
 
 {{/*
