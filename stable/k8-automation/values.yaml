@@ -131,3 +131,11 @@ serviceAccount:
   # name of the service account, if not set and create is true, a name
   # is generated using the fullname template
   name:
+
+## global Atomist values
+global:
+  atomist:
+    mode:
+    token:
+    teamIds:
+    environment:

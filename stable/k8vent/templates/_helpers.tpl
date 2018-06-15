@@ -41,3 +41,34 @@ Create the name of the service account to use.
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Determine the deployment mode.  Global value takes precedence.
+*/}}
+{{- define "k8vent.mode" -}}
+{{- default .Values.mode .Values.global.atomist.mode -}}
+{{- end -}}
+
+{{/*
+Determine team IDs.  k8vent value takes precedence.
+*/}}
+{{- define "k8vent.teams" -}}
+{{- $teams := default .Values.global.atomist.teamIds .Values.teamIds -}}
+{{- if $teams -}}
+  {{- join "," $teams -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Determine environment.  Global value takes precedence.
+*/}}
+{{- define "k8vent.env" -}}
+{{- default .Values.environment .Values.global.atomist.environment -}}
+{{- end -}}
+
+{{/*
+Determine role type.
+*/}}
+{{- define "k8vent.role" -}}
+{{- ternary "ClusterRole" "Role" (eq (include "k8vent.mode" .) "cluster") -}}
+{{- end -}}

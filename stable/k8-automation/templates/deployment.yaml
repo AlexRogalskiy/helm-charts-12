@@ -1,4 +1,3 @@
-{{- template "k8-automation.requiredValues" . -}}
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:

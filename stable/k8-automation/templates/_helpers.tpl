@@ -46,28 +46,41 @@ Create the name of the service account to use.
 Determine the deployment mode.  Global value takes precedence.
 */}}
 {{- define "k8-automation.mode" -}}
-{{- default .Values.config.kubernetes.mode .Values.global.mode -}}
+{{- $mode := default .Values.config.kubernetes.mode .Values.global.atomist.mode -}}
+{{- if and (ne $mode "cluster") (ne $mode "namespace") -}}
+  {{- required (printf "Kubernetes mode (%s) must be either 'cluster' or 'namespace'" $mode) nil -}}
+{{- end -}}
+{{- $mode -}}
 {{- end -}}
 
 {{/*
 Determine team IDs.  k8-automation value takes precedence.
 */}}
 {{- define "k8-automation.teams" -}}
-{{- default .Values.global.teamIds .Values.config.teamIds | join "," -}}
+{{- $teams := default .Values.global.atomist.teamIds .Values.config.teamIds -}}
+{{- if $teams -}}
+  {{- join "," $teams -}}
+{{- else if not .Values.config.groups -}}
+  {{- required "You must supply at least one Atomist team ID or, less likely, group" nil -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
 Determine environment.  Global value takes precedence.
 */}}
 {{- define "k8-automation.env" -}}
-{{- default .Values.config.environment .Values.global.environment -}}
+{{- $env := default .Values.config.environment .Values.global.atomist.environment -}}
+{{- if $env -}}
+  {{- $env -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
 Determine token.  k8-automation value takes precedence.
 */}}
 {{- define "k8-automation.token" -}}
-{{- default .Values.global.token .Values.config.token -}}
+{{- $token := default .Values.global.atomist.token .Values.secret.token -}}
+{{- required "You must supply a secret.token or global.atomist.token" $token -}}
 {{- end -}}
 
 {{/*
@@ -75,20 +88,4 @@ Determine role type.
 */}}
 {{- define "k8-automation.role" -}}
 {{- ternary "ClusterRole" "Role" (eq (include "k8-automation.mode" .) "cluster") -}}
-{{- end -}}
-
-{{/*
-Check to make sure all required values are set.
-*/}}
-{{- define "k8-automation.requiredValues" -}}
-{{- if not .Values.secret.token -}}
-{{- required "You must supply a secret.token" .Values.secret.token -}}
-{{- end -}}
-{{- if and (not (include "k8-automation.teams" .)) (not .Values.config.groups) -}}
-{{- required "You must supply at least one Atomist team ID or, less likely, group" .Values.config.teamIds -}}
-{{- end -}}
-{{- $mode := include "k8-automation.mode" . -}}
-{{- if and (not (eq $mode "cluster")) (not (eq $mode "namespace")) -}}
-{{- required (printf "Kubernetes mode (.Values.config.kubernetes.mode=%s) must be either 'cluster' or 'namespace'" $mode) nil -}}
-{{- end -}}
 {{- end -}}

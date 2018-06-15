@@ -1,7 +1,7 @@
 {{- if .Values.rbac.create -}}
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: {{ if eq .Values.global.mode "cluster" }}Cluster{{ end }}RoleBinding
+kind: {{ template "k8vent.role" . }}Binding
 metadata:
   name: {{ template "k8vent.fullname" . }}
   labels:
@@ -9,12 +9,12 @@ metadata:
     chart: {{ template "k8vent.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: {{ if eq .Values.global.mode "cluster" }}Cluster{{ end }}Role
-  name: {{ template "k8vent.fullname" . }}
 subjects:
   - kind: ServiceAccount
     name: {{ template "k8vent.serviceAccountName" . }}
     namespace: {{ .Release.Namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: {{ template "k8vent.role" . }}
+  name: {{ template "k8vent.fullname" . }}
 {{- end }}

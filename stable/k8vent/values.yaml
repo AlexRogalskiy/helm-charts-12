@@ -4,19 +4,18 @@
 
 # The default values here are suitable for a minikube installation.
 
-global:
-  # teamIds is an array of Atomist workspace/team IDs, if not set or set
-  # to a zero-length array, k8vent will only send events for pods with
-  # "atomist.com/k8vent" annotations supplying webhook URLs
-  teamIds:
+# teamIds is an array of Atomist workspace/team IDs, if not set or set
+# to a zero-length array, k8vent will only send events for pods with
+# "atomist.com/k8vent" annotations supplying webhook URLs
+teamIds:
 
-  # environment is an arbitrary environment tag for pod events
-  # sent to the Atomist webhook
-  environment: minikube
+# environment is an arbitrary environment tag for pod events
+# sent to the Atomist webhook
+environment: minikube
 
-  # mode specifies whether k8vent should run in "cluster" or "namespace"
-  # mode.
-  mode: cluster
+# mode specifies whether k8vent should run in "cluster" or "namespace"
+# mode.
+mode: cluster
 
 # image has information on what image to start up in the pod container
 image:
@@ -69,3 +68,11 @@ serviceAccount:
   # name of the service account, if not set and create is true, a name
   # is generated using the fullname template
   name:
+
+## global Atomist values
+global:
+  atomist:
+    mode:
+    token:
+    teamIds:
+    environment:
