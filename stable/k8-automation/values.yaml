@@ -29,10 +29,6 @@ config:
     # or "namespace" to only manage the namespace in which
     # k8-automation is deployed
     mode: cluster
-    # namespaces is an array of _existing_ namespaces to manage
-    # resources in when mode is "cluster"
-    # if empty, all namespaces will be managed
-    namespaces:
 
   # environment connects this instance of k8-automation with goals
   # set by an SDM, an instance of k8-automation will only fulfill

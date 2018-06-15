@@ -27,16 +27,16 @@ spec:
           image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-          {{- with .Values.environment }}
+          {{- with .Values.global.environment }}
             - name: ATOMIST_ENVIRONMENT
               value: {{ quote . }}
           {{- end }}
-          {{- with .Values.teamIds }}
+          {{- with .Values.global.teamIds }}
           {{- $baseURL := "https://webhook.atomist.com/atomist/kube/teams/"}}
             - name: K8VENT_WEBHOOKS
               value: "{{ $baseURL }}{{ join (printf ",%s" $baseURL) . }}"
           {{- end }}
-          {{- if eq .Values.mode "namespace" }}
+          {{- if eq .Values.global.mode "namespace" }}
             - name: K8VENT_NAMESPACE
               valueFrom:
                 fieldRef:

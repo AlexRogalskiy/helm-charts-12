@@ -1,7 +1,7 @@
 {{- if .Values.rbac.create -}}
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: {{ if eq .Values.config.kubernetes.mode "cluster" }}Cluster{{ end }}Role
+kind: {{ template "k8-automation.role" . }}
 metadata:
   name: {{ template "k8-automation.fullname" . }}
   labels:
@@ -11,7 +11,7 @@ metadata:
     heritage: {{ .Release.Service }}
 rules:
   - apiGroups: [""]
-    resources: [{{ if eq .Values.config.kubernetes.mode "cluster" }}"namespaces", {{ end }}"services"]
+    resources: [{{ if eq (include "k8-automation.mode" .) "cluster" }}"namespaces", {{ end }}"services"]
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
   - apiGroups: ["apps", "extensions"]
     resources: ["deployments"]

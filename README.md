@@ -10,20 +10,31 @@ these charts.
 
 ## Using
 
-To install one of the Atomist utilities using these Helm charts, run
+The [Atomist Kubernetes documentation][atomist-kube] has complete
+instructions for install the Atomist Kubernetes utilities using Helm.
+Briefly, to install the Atomist utilities using these Helm charts, run
 `helm` using the `--repo` command-line option.
 
 ```
-$ helm install --repo https://github.com/atomist/helm-charts stable/CHART
+$ helm install --repo https://atomist.github.io/helm-charts atomist-utilities \
+     --set=global.token="TOKEN" --set=global.teamIds="{WORKSPACE_ID}" \
+     --set=global.mode=MODE --set=global.environment=ENV
 ```
 
-Currently supported stable charts:
+Replace `TOKEN` with a valid Atomist authentication token,
+`WORKSPACE_ID` with your Atomist workspace/team ID, `MODE` with either
+`cluster` for cluster-wide mode or `namespace` for namespace-scoded
+mode, and `ENV` with a meaningful name for your Kubernetes cluster,
+e.g., "production" or "external".
+
+You can also install the Atomist utilities individually.  The
+currently supported stable charts are:
 
 -   [k8-automation][]
 -   [k8vent][]
 
-[k8-automation]: https://github.com/atomist/helm-charts/blob/master/stable/k8-automation#readme
-[k8vent]: https://github.com/atomist/helm-charts/blob/master/stable/k8vent#readme
+[k8-automation]: stable/k8-automationREADME.md (k8-automation Helm Chart)
+[k8vent]: stable/k8ventREADME.md (k8vent Helm Chart)
 
 ## Releasing
 

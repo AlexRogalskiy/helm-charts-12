@@ -1,3 +1,6 @@
+{{- $kube := set .Values.config.kubernetes "mode" (include "k8-automation.mode" .) -}}
+{{- $config := set .Values.config "teamIds" (include "k8-automation.teams" .) -}}
+{{- $config := set .Values.config "environment" (include "k8-automation.env" .) -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -8,4 +11,4 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 data:
-  config.json: {{ toJson .Values.config | squote }}
+  config.json: {{ toJson $config | squote }}
