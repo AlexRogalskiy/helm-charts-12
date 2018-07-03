@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   atomist-utilities:
   - apiVersion: v1
-    created: 2018-06-15T12:28:21.040735776-07:00
+    created: 2018-07-03T14:51:00.688304514-05:00
     description: A Helm chart for the Atomist Kubernetes utilities
     digest: ccbad4e0d54a5dafb7db276128906d72323b98d122d28d316872b1fa43a97579
     home: https://github.com/atomist/helm-charts/
@@ -19,7 +19,7 @@ entries:
     - https://atomist.github.io/helm-charts/atomist-utilities-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: 2018-06-15T12:28:21.039780548-07:00
+    created: 2018-07-03T14:51:00.686800628-05:00
     description: A Helm chart for the Atomist Kubernetes utilities
     digest: 52dd084830b973f0eb0f98ed4d569b83585d1d15831f8ec4ce671b5190738f8e
     home: https://github.com/atomist/helm-charts/
@@ -38,7 +38,7 @@ entries:
   k8-automation:
   - apiVersion: v1
     appVersion: 0.8.0
-    created: 2018-06-15T12:28:21.042821893-07:00
+    created: 2018-07-03T14:51:00.692218957-05:00
     description: A Helm chart for k8-automation
     digest: 6225b67c5025f70d6160b1fdd47280ac5f16c91f5d041ce8b67ac675bd7ab7ea
     home: https://github.com/atomist/k8-automation
@@ -56,7 +56,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: 0.8.0
-    created: 2018-06-15T12:28:21.042298047-07:00
+    created: 2018-07-03T14:51:00.691252623-05:00
     description: A Helm chart for k8-automation
     digest: 463e2fc903be375534abc91cfc240e5ba99c04ce5f0d46ef5f63f8727c7c0a3f
     home: https://github.com/atomist/k8-automation
@@ -74,7 +74,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: 0.8.0
-    created: 2018-06-15T12:28:21.041771462-07:00
+    created: 2018-07-03T14:51:00.690239519-05:00
     description: A Helm chart for k8-automation
     digest: ffc4db30c1b7733b359af9b2ee78535c5b3e50b81406869c3677e4ec4ae0b958
     home: https://github.com/atomist/k8-automation
@@ -92,7 +92,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: 0.8.0
-    created: 2018-06-15T12:28:21.041258487-07:00
+    created: 2018-07-03T14:51:00.689260843-05:00
     description: A Helm chart for k8-automation
     digest: e9468bd78131638d464a76a6fe1b3c145a15ac867d7c3c3a516f4a1cab273d82
     home: https://github.com/atomist/k8-automation
@@ -110,8 +110,26 @@ entries:
     version: 0.1.0
   k8vent:
   - apiVersion: v1
+    appVersion: 0.9.0
+    created: 2018-07-03T14:51:00.695459055-05:00
+    description: A Helm chart for k8vent
+    digest: 2c405713c657b013e54288045aba0ef96cdb0724bb357d546ab73463bd256c2c
+    home: https://github.com/atomist/k8vent/
+    icon: https://images.atomist.com/logo/atomist-color-mark-transparent-small.png
+    keywords:
+    - kubernetes
+    - atomist
+    maintainers:
+    - email: support@atomist.com
+      name: Atomist
+      url: https://github.com/atomist
+    name: k8vent
+    urls:
+    - https://atomist.github.io/helm-charts/k8vent-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v1
     appVersion: 0.8.0
-    created: 2018-06-15T12:28:21.044297088-07:00
+    created: 2018-07-03T14:51:00.694930681-05:00
     description: A Helm chart for k8vent
     digest: 4e45359c591670605a8e94ec5fb8d05fce663d7278ec329ea111008dd65b307d
     home: https://github.com/atomist/k8vent/
@@ -129,7 +147,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: 0.8.0
-    created: 2018-06-15T12:28:21.043714068-07:00
+    created: 2018-07-03T14:51:00.694035266-05:00
     description: A Helm chart for k8vent
     digest: b248106f71760588257efb175d626de6cc63d7f72de12814eb26b0b891b793d1
     home: https://github.com/atomist/k8vent/
@@ -147,7 +165,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: 0.8.0
-    created: 2018-06-15T12:28:21.043271413-07:00
+    created: 2018-07-03T14:51:00.693130996-05:00
     description: A Helm chart for k8vent
     digest: 243e96bff23eafb68212a75dc7a2589ddc88a686a387a34e9a94139b6df1510b
     home: https://github.com/atomist/k8vent/
@@ -163,4 +181,4 @@ entries:
     urls:
     - https://atomist.github.io/helm-charts/k8vent-0.1.0.tgz
     version: 0.1.0
-generated: 2018-06-15T12:28:21.038704885-07:00
+generated: 2018-07-03T14:51:00.685222919-05:00
