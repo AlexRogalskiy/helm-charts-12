@@ -11,17 +11,17 @@
 # created and provided to k8-automation as a secret, the secret
 # settings will override any settings in config
 secret:
-  # token is a valid Atomist token, required
-  token:
+  # apiKey is a valid Atomist API key, required
+  apiKey:
 
 # config holds the automation client configuration that is not
 # sensitive, it will be created and provided to k8-automation as a
 # config map, settings in secret take precedence over config values
 config:
-  # teamIds is an array of Atomist workspace/team IDs, must be a
-  # set to a non-zero-length array unless you are internal Atomist and
+  # workspaceIds is an array of Atomist workspace IDs, must be a set
+  # to a non-zero-length array unless you are internal Atomist and
   # running a global automation
-  teamIds:
+  workspaceIds:
 
   # Kubernetes configuration
   kubernetes:
@@ -53,9 +53,9 @@ config:
     # enabled says whether to send application events or not, default
     # is false
     #enabled: true
-    # teamId says where to send the application events, if should be
+    # workspaceId says where to send the application events, if should be
     # set if enabled is true
-    #teamId:
+    #workspaceId:
 
   # cluster sets the cluster configuration
   cluster:
@@ -73,7 +73,7 @@ config:
     # port to send statsd metrics to
     port: 8125
 
-  # groups is for internal Atomist use, do not set, use teamIds
+  # groups is for internal Atomist use, do not set, use workspaceIds
   #groups:
 
 ## Docker image settings
@@ -136,6 +136,6 @@ serviceAccount:
 global:
   atomist:
     mode:
-    token:
-    teamIds:
+    apiKey:
+    workspaceIds:
     environment:

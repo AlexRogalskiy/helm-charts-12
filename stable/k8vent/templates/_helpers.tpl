@@ -50,12 +50,12 @@ Determine the deployment mode.  Global value takes precedence.
 {{- end -}}
 
 {{/*
-Determine team IDs.  k8vent value takes precedence.
+Determine workspace IDs.  k8vent value takes precedence.
 */}}
-{{- define "k8vent.teams" -}}
-{{- $teams := default .Values.global.atomist.teamIds .Values.teamIds -}}
-{{- if $teams -}}
-  {{- join "," $teams -}}
+{{- define "k8vent.workspaces" -}}
+{{- $workspaces := default .Values.global.atomist.workspaceIds .Values.workspaceIds -}}
+{{- if $workspaces -}}
+  {{- join "," $workspaces -}}
 {{- end -}}
 {{- end -}}
 

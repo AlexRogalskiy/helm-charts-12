@@ -1,6 +1,6 @@
 {{- $kube := set .Values.config.kubernetes "mode" (include "k8-automation.mode" .) -}}
 {{- $config := set .Values.config "environment" (include "k8-automation.env" .) -}}
-{{- $config := set .Values.config "teamIds" (include "k8-automation.teams" . | splitList ",") -}}
+{{- $config := set .Values.config "workspaceIds" (include "k8-automation.workspaces" . | splitList ",") -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:

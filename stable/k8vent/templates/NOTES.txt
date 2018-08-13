@@ -2,12 +2,13 @@ Thank you for installing {{ .Chart.Name }}.
 
 Your release is named {{ .Release.Name }}.
 
-{{- with .Values.teamIds }}
+{{- with (include "k8vent.workspaces" .) }}
 
-By default, your Pod events will be sent to Atomist team(s) {{ . }}.
+By default, your Pod events will be sent to Atomist workspace(s)
+{{ . }}.
 {{- else }}
 
-You did not specify any Atomist team IDs, so only Pods with a valid
-"atomist.com/k8vent" annotation setting webhook URLs will have their
-Pod events sent to Atomist.
+You did not specify any Atomist workspace IDs, so only Pods with a
+valid "atomist.com/k8vent" annotation setting webhook URLs will have
+their Pod events sent to Atomist.
 {{- end }}

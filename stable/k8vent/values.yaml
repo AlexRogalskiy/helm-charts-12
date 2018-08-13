@@ -4,10 +4,10 @@
 
 # The default values here are suitable for a minikube installation.
 
-# teamIds is an array of Atomist workspace/team IDs, if not set or set
+# workspaceIds is an array of Atomist workspace IDs, if not set or set
 # to a zero-length array, k8vent will only send events for pods with
 # "atomist.com/k8vent" annotations supplying webhook URLs
-teamIds:
+workspaceIds:
 
 # environment is an arbitrary environment tag for pod events
 # sent to the Atomist webhook
@@ -73,6 +73,6 @@ serviceAccount:
 global:
   atomist:
     mode:
-    token:
-    teamIds:
+    apiKey:
+    workspaceIds:
     environment:

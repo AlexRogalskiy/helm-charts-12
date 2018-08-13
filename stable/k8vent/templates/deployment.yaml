@@ -31,7 +31,7 @@ spec:
             - name: ATOMIST_ENVIRONMENT
               value: {{ quote . }}
           {{- end }}
-          {{- with (include "k8vent.teams" .) }}
+          {{- with (include "k8vent.workspaces" .) }}
           {{- $baseURL := "https://webhook.atomist.com/atomist/kube/teams/"}}
             - name: K8VENT_WEBHOOKS
               value: "{{ $baseURL }}{{ splitList "," . | join (printf ",%s" $baseURL) }}"

@@ -54,14 +54,14 @@ Determine the deployment mode.  Global value takes precedence.
 {{- end -}}
 
 {{/*
-Determine team IDs.  k8-automation value takes precedence.
+Determine workspace IDs.  k8-automation value takes precedence.
 */}}
-{{- define "k8-automation.teams" -}}
-{{- $teams := default .Values.global.atomist.teamIds .Values.config.teamIds -}}
-{{- if $teams -}}
-  {{- join "," $teams -}}
+{{- define "k8-automation.workspaces" -}}
+{{- $workspaces := default .Values.global.atomist.workspaceIds .Values.config.workspaceIds -}}
+{{- if $workspaces -}}
+  {{- join "," $workspaces -}}
 {{- else if not .Values.config.groups -}}
-  {{- required "You must supply at least one Atomist team ID or, less likely, group" nil -}}
+  {{- required "You must supply at least one Atomist workspace ID or, less likely, group" nil -}}
 {{- end -}}
 {{- end -}}
 
@@ -76,11 +76,11 @@ Determine environment.  Global value takes precedence.
 {{- end -}}
 
 {{/*
-Determine token.  k8-automation value takes precedence.
+Determine Atomist API key.  k8-automation value takes precedence.
 */}}
-{{- define "k8-automation.token" -}}
-{{- $token := default .Values.global.atomist.token .Values.secret.token -}}
-{{- required "You must supply a secret.token or global.atomist.token" $token -}}
+{{- define "k8-automation.apiKey" -}}
+{{- $apiKey := default .Values.global.atomist.apiKey .Values.secret.apiKey -}}
+{{- required "You must supply a secret.apiKey or global.atomist.apiKey" $apiKey -}}
 {{- end -}}
 
 {{/*
